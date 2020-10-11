@@ -1,4 +1,5 @@
 import React from "react"
+import TodosList from "./TodosList";
 class ToDoContainer extends React.Component {
 
     //states, array of objects
@@ -26,10 +27,10 @@ class ToDoContainer extends React.Component {
 //looped through the array of objects, and output each title
     render() {
         return (
+            //now have the state data in todos prop
             <div>
-                {this.state.todos.map(todo => (
-                    <li>{todo.title}</li>
-                ))}
+                
+                <TodosList todos={this.state.todos}/>
             </div>
         )
     }
