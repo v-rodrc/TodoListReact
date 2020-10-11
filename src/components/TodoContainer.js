@@ -4,6 +4,7 @@ import Header from "./Header"
 import InputTodo from "./InputTodo"
 import { v4 as uuidv4 } from "uuid"
 
+
 class ToDoContainer extends React.Component {
 
     //states, array of objects
@@ -68,7 +69,7 @@ class ToDoContainer extends React.Component {
     render() {
         return (
             //now have the state data in todos prop
-            <div>
+            <div className="container">
                 <Header/>
                 <InputTodo addTodoProps={this.addTotoItem}/>
                 <TodosList 
