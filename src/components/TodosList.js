@@ -7,7 +7,9 @@ import TodoItem from './TodoItem'
             //access data through props from TodoContainer
             <div>
                 {this.props.todos.map(todo => (
-                   <TodoItem key={todo.id} todo={todo}/>
+                   <TodoItem key={todo.id} 
+                   todo={todo}
+                   handleChangeProps={this.props.handleChangeProps}/>
                 ))}
             </div>
         )

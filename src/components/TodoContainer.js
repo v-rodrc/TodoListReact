@@ -27,12 +27,17 @@ class ToDoContainer extends React.Component {
     };
 //acccessed toodos in the render method
 //looped through the array of objects, and output each title
+    handleChange = (id) => {
+        console.log("clicked", id)
+    };
+
     render() {
         return (
             //now have the state data in todos prop
             <div>
                 <Header></Header>
-                <TodosList todos={this.state.todos}/>
+                <TodosList todos={this.state.todos}
+                handleChangeProps={this.handleChange}/>
             </div>
         )
     }
