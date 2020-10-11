@@ -27,8 +27,29 @@ class ToDoContainer extends React.Component {
     };
 //acccessed toodos in the render method
 //looped through the array of objects, and output each title
-    handleChange = (id) => {
-        console.log("clicked", id)
+    handleChange = id => {
+        this.setState({
+            //loop through todos data and check if any items
+            // id matches the checked id, then flip the completed value
+            todos: this.state.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed;
+                }
+                return todo;
+            })
+        })
+    };
+
+    delTodo = id => {
+        this.setState({
+            //for each of the todos data we are looping through
+            //we want to retain the ones whos id is not equal to the id passed in
+            todos: [
+                ...this.state.todos.filter(todo => {
+                    return todo.id !== id;
+                })
+            ]
+        })
     };
 
     render() {
@@ -36,8 +57,12 @@ class ToDoContainer extends React.Component {
             //now have the state data in todos prop
             <div>
                 <Header></Header>
-                <TodosList todos={this.state.todos}
-                handleChangeProps={this.handleChange}/>
+                <TodosList 
+                todos={this.state.todos}
+                handleChangeProps={this.handleChange}
+                deleteTodoProps={this.delTodo}
+                />
+                
             </div>
         )
     }
