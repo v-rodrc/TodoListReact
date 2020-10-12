@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 
 class TodoItem extends Component {
 
+    componentWillUnmount() {
+        alert("Item about to be deleted!");
+    }
     
     render() {
      
